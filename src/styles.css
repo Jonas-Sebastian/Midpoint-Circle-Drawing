@@ -1,0 +1,74 @@
+body {
+  height: 100vh;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+section {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0;
+}
+
+.content {
+  text-align: center;
+}
+
+.level-title {
+  font-size: 40px;
+  margin: 10px 0 15px;
+}
+
+.description {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.game-btn {
+  padding: 12px 24px;
+  border: none;
+  font-size: 16px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background: #59739a;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s linear;
+  display: none;
+}
+
+.game-btn:hover {
+  background: #cb576c;
+}
+
+.game {
+  position: relative;
+  width: 45%;
+}
+
+.level-one,
+.level-two {
+  width: 100%;
+}
+
+.level-two {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .game {
+    position: relative;
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .game {
+    position: relative;
+    width: 95%;
+  }
+}
