@@ -51,11 +51,13 @@ section {
 }
 
 .level-one,
-.level-two {
+.level-two,
+.level-three {
   width: 100%;
 }
 
-.level-two {
+.level-two,
+.level-three {
   display: none;
 }
 
