@@ -26,7 +26,7 @@ function jumpScare(restartGame) {
   // Play scary sound (optional)
   const jumpScareSound = new Audio(jumpscareSound);
   jumpScareSound.play();
-  jumpScareSound.volume = 0.05; //Adjust volume here (0.5 is 50%, 1.0 = 100%)
+  jumpScareSound.volume = 0.3; //Adjust volume here (0.5 is 50%, 1.0 = 100%)
   
   // Function to remove the jumpscare image after a few seconds
   setTimeout(function () {
