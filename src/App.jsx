@@ -1,26 +1,16 @@
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
-import DDA from './DDA'; // Import DDA component
-import Bresenham from './Bresenham'; // Import Bresenham component
+import MidpointCircle from './MidpointCircle';
 
 export default function App() {
-  const [inputValues, setInputValues] = useState({ x1: 0, y1: 0, x2: 0, y2: 0 });
+  const [inputValues, setInputValues] = useState({ xCenter: 0, yCenter: 0, radius: 0 });
 
   const handleInputChange = (event) => {
     const { id, value } = event.target;
     setInputValues({
-        ...inputValues,
-        [id]: value,
+      ...inputValues,
+      [id]: value.trim() !== '' ? parseFloat(value) : '',
     });
-  };
-
-  const parseInputValues = () => {
-    return {
-      x1: parseFloat(inputValues.x1),
-      y1: parseFloat(inputValues.y1),
-      x2: parseFloat(inputValues.x2),
-      y2: parseFloat(inputValues.y2),
-    };
   };
 
   return (
@@ -29,41 +19,27 @@ export default function App() {
         <h1>Input Values:</h1>
         <div className="input-container">
           <div className="input-row">
-            <p>X1: </p>
-            <TextField id="x1" value={inputValues.x1} onChange={handleInputChange} />
+            <p>X Center: </p>
+            <TextField id="xCenter" value={inputValues.xCenter} onChange={handleInputChange} />
           </div>
           <div className="input-row">
-            <p>Y1: </p>
-            <TextField id="y1" value={inputValues.y1} onChange={handleInputChange} />
+            <p>Y Center: </p>
+            <TextField id="yCenter" value={inputValues.yCenter} onChange={handleInputChange} />
           </div>
           <div className="input-row">
-            <p>X2:</p>
-            <TextField id="x2" value={inputValues.x2} onChange={handleInputChange} />
-          </div>
-          <div className="input-row">
-            <p>Y2:</p>
-            <TextField id="y2" value={inputValues.y2} onChange={handleInputChange} />
+            <p>Radius:</p>
+            <TextField id="radius" value={inputValues.radius} onChange={handleInputChange} />
           </div>
         </div>
       </div>
       <div className="container">
         <div className="algorithm-container">
-          <h2>DDA Line Drawing Algorithm</h2>
+          <h1>Midpoint Circle Drawing Algorithm</h1>
           <div className="line-container">
-            {inputValues.x1 !== '' && inputValues.y1 !== '' && inputValues.x2 !== '' && inputValues.y2 !== '' ? (
-              <DDA {...parseInputValues()} />
+          {inputValues.xCenter !== '' && inputValues.yCenter !== '' && inputValues.radius !== '' ? (
+              <MidpointCircle xCenter={inputValues.xCenter} yCenter={inputValues.yCenter} radius={inputValues.radius} />
             ) : (
-              <DDA x1={0} y1={0} x2={0} y2={0} />
-            )}
-          </div>
-        </div>
-        <div className="algorithm-container">
-          <h2>Bresenham's Line Drawing Algorithm</h2>
-          <div className="line-container">
-            {inputValues.x1 !== '' && inputValues.y1 !== '' && inputValues.x2 !== '' && inputValues.y2 !== '' ? (
-              <Bresenham {...parseInputValues()} />
-            ) : (
-              <Bresenham x1={0} y1={0} x2={0} y2={0} />
+              <MidpointCircle xCenter={0} yCenter={0} radius={0} />
             )}
           </div>
         </div>
